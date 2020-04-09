@@ -1,0 +1,16 @@
+.LeftDiv {
+  box-sizing: border-box;
+  width: 100%;
+  height: 200px;
+  justify-content: center;
+  margin-bottom: 2em;
+  background-color: #c36d5b;
+  color: #212020;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#covidTableData {
+  color: #212020;
+  font-weight: bold;
+}

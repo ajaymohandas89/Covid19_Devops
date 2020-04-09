@@ -1,0 +1,15 @@
+.Header {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 1em;
+  margin-bottom: 2em;
+  background-color: #c36d5b;
+  color: #212020;
+}
+
+.Title-Subtitle {
+  position: absolute;
+  top: 70px;
+}
