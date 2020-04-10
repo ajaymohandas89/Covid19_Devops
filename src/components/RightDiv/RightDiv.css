@@ -4,7 +4,8 @@
   height: 100px;
   justify-content: center;
   background-color: #4caf50;
-  color: #141414;
+  margin-bottom: 2em;
+  color: #212020;
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -12,20 +13,33 @@
 .form-container1 {
   box-sizing: border-box;
   width: 100%;
+  height: 250px;
+  margin-top: 5px;
+  justify-content: center;
+  margin-bottom: 2em;
+  background-color: #4caf50;
+  color: #141414;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+.form-container2 {
+  box-sizing: border-box;
+  width: 100%;
   height: 150px;
   margin-top: 5px;
   justify-content: center;
   margin-bottom: 2em;
-  background-color: #c36d5b;
-  color: #212020;
+  background-color: #4caf50;
+  color: #141414;
   overflow-y: auto;
-  overflow-x: hidden;
+  overflow-x: auto;
 }
 
 .countryDiv {
   margin-top: 10px;
   padding-bottom: 20px;
-  color: #212020;
+  color: #141414;
 }
 
 .btn-select-location {

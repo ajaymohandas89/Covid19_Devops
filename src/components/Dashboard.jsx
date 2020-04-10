@@ -12,16 +12,16 @@ class Dashboard extends Component {
       country: "all",
       countrySpecificData: undefined,
       allData: undefined,
+      allCountryData: undefined,
     };
     this.onChange = this.onChange.bind(this);
   }
   componentWillMount() {
-    console.log("componentWillMount()");
     fetch(`https://corona.lmao.ninja/all`, {
       method: "GET",
       headers: {
         "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "POST",
+        "Access-Control-Allow-Methods": "GET",
         "Access-Control-Allow-Headers": "Authorization",
         "Content-Type": "application/json",
       },
@@ -30,6 +30,20 @@ class Dashboard extends Component {
         return response.json();
       })
       .then((data) => this.setState({allData: data}));
+
+    fetch(`https://corona.lmao.ninja/countries`, {
+      method: "GET",
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET",
+        "Access-Control-Allow-Headers": "Authorization",
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => this.setState({allCountryData: data}));
   }
   onChange(newCtryName, newCountrySpecificData) {
     this.setState({country: newCtryName});
@@ -37,7 +51,6 @@ class Dashboard extends Component {
   }
 
   render() {
-    const students = this.state.students;
     const country = this.state.country;
     const leftDivAllData = this.state.allData !== undefined ? <LeftDiv allData={this.state.allData} /> : null;
     return (
@@ -45,10 +58,10 @@ class Dashboard extends Component {
         <Header />
         {leftDivAllData}
         <Router>
-          <TableData students={students} country={country} onCountryChange={this.onChange} />
+          <TableData country={country} onCountryChange={this.onChange} />
           <Switch>
             <Route exact path="/displayCountryData/:country" children={<Detail {...this.state} />} />
-            <Route exact path="/displayAllCountryData" children={<AllData {...this.state} />} />
+            <Route exact path="/displayAllCountryData" children={<AllData data={this.state.allCountryData} />} />
           </Switch>
         </Router>
         <Footer />
@@ -58,11 +71,10 @@ class Dashboard extends Component {
 }
 
 function Detail(props) {
-  const students = props.students;
   let country = props.country;
   const countrySpecificData = props.countrySpecificData;
   return (
-    <div className="form-container1" style={{display: "inline-block", float: "right", marginLeft: "auto", marginRight: "auto"}}>
+    <div className="form-container2" style={{display: "inline-block", float: "right", marginLeft: "auto", marginRight: "auto"}}>
       <div className="fullDetailedReport" style={{color: "#212020", fontWeight: "bold"}}>
         <table lassName="countryDiv" border="2" align="center">
           <caption style={{marginBottom: "15px"}}>Detailed Report on Covid19</caption>
@@ -105,28 +117,30 @@ function Detail(props) {
 }
 
 function AllData(props) {
-  const students = props.students;
-  let country = props.country;
-  let header = Object.keys(students[0]);
+  const allCountryData = props;
+  const countryList = [];
+  const caseList = [];
+  countryList.push("Country");
+  caseList.push("Total Cases");
+  for (var i = 0; i < allCountryData.data.length; i++) {
+    countryList.push(allCountryData.data[i].country);
+    caseList.push(allCountryData.data[i].cases);
+  }
+  const result = [];
+  result.push.apply(result, [countryList]);
+  result.push.apply(result, [caseList]);
+
   return (
     <div className="form-container1" style={{display: "inline-block", float: "right", marginLeft: "auto", marginRight: "auto"}}>
+      <h3>Total cases in each country</h3>
       <div className="fullDetailedReport" style={{color: "#212020", fontWeight: "bold"}}>
         <table lassName="countryDiv" border="2" align="center">
-          <caption style={{marginBottom: "15px"}}>Detailed Report on Covid19</caption>
-          <thead>
-            <tr>
-              {header.map((student, index) => (
-                <th key={index}>{student.toUpperCase()}</th>
-              ))}
-            </tr>
-          </thead>
           <tbody>
-            {students.map((student, index) => (
-              <tr key={student.id}>
-                <td>{student.id}</td>
-                <td>{student.name}</td>
-                <td>{student.age}</td>
-                <td>{student.email}</td>
+            {result.map((numList, i) => (
+              <tr key={i}>
+                {numList.map((num, j) => (
+                  <td key={j}>{num}</td>
+                ))}
               </tr>
             ))}
           </tbody>

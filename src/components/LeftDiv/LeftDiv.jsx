@@ -7,7 +7,6 @@ class LeftDiv extends Component {
 
   render() {
     const alldata = this.props.allData !== undefined ? this.props.allData : null;
-    console.log("Left div", alldata.cases);
     return (
       <div className="LeftDiv" style={{display: "inline-block", float: "left"}}>
         <h4>Total Cases Confirmed</h4>

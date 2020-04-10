@@ -5,10 +5,6 @@
   justify-content: center;
   padding: 1em;
   padding-bottom: 2em;
-  background-color: #c36d5b;
-  color: #212020;
-}
-.Footer_subtitle {
-  position: absolute;
-  top: 740px;
+  background-color: #4caf50;
+  color: #141414;
 }
