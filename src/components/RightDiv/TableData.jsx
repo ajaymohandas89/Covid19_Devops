@@ -11,13 +11,14 @@ class TableData extends Component {
     };
   }
   onCountryNameChange(e) {
+    e.preventDefault();
     this.setState(
       {
         newCountryName: e.target.value,
       },
       () => {
         const countryNm = this.state.newCountryName;
-        fetch(`https://corona.lmao.ninja/countries/${countryNm}`, {
+        fetch(`https://corona.lmao.ninja/v2/countries/${countryNm}`, {
           method: "GET",
           headers: {
             "Access-Control-Allow-Origin": "*",
@@ -39,8 +40,10 @@ class TableData extends Component {
       color: "#212020",
       textDecoration: "none",
       fontWeight: "bold",
-      border: "3px solid black",
+      border: "3px solid #922b21",
       padding: "5px",
+      marginLeft: "50px",
+      borderRadius: "5px",
     };
     const {country} = this.props;
     return (
@@ -49,7 +52,7 @@ class TableData extends Component {
           <label htmlFor="country-name" style={{fontWeight: "bold", color: "#212020"}}>
             Country:{" "}
           </label>
-          <input id="country-name" type="text" placeholder="enter country name" onBlur={this.onCountryNameChange.bind(this)} style={{border: "3px solid"}}></input>
+          <input id="country-name" type="text" placeholder="enter country name" onBlur={this.onCountryNameChange.bind(this)} style={{border: "3px solid #922b21", height: "20px"}}></input>
         </div>
         <Link style={hyperLinkColor} to={`/displayAllCountryData`}>
           Get World report

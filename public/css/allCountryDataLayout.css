@@ -1,0 +1,33 @@
+.column {
+  float: left;
+  width: 15%;
+  padding: 0 10px;
+  margin-bottom: 7px;
+}
+
+.row {
+  margin: 0 -5px;
+  background-color: #fcf3cf;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.card {
+  box-shadow: 0 5px 15px 0 white;
+  padding: 3px;
+  text-align: center;
+  background-color: #f8c471;
+  border: 2px solid #922b21;
+  border-radius: 10px;
+}
+
+.values .card:hover {
+  transition: transform 0.5s ease;
+  -ms-transform: scale(1.5);
+  -webkit-transform: scale(1.5);
+  transform: scale(1.5);
+}

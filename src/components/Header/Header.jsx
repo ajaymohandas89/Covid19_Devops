@@ -6,9 +6,7 @@ class Header extends Component {
     return (
       <div className="Header">
         <h1>Coronavirus COVID-19 Global Dashboard</h1>
-        <div className="Title-Subtitle">
-          <h3>Team 13</h3>
-        </div>
+        <div className="Title-Subtitle"></div>
       </div>
     );
   }

@@ -9,23 +9,23 @@ class LeftDiv extends Component {
     const alldata = this.props.allData !== undefined ? this.props.allData : null;
     return (
       <div className="LeftDiv" style={{display: "inline-block", float: "left"}}>
-        <h4>Total Cases Confirmed</h4>
+        <h4 style={{textDecoration: "underline"}}>Total Cases: {alldata.cases}</h4>
         {/* display the total number here */}
-        <table id="covidTableData" border="2" align="center">
-          <caption style={{marginBottom: "15px"}}>Confirmed Cases by Country/Region/Sovereignty</caption>
+        <table id="covidTableData" border="1" align="center" style={{borderRadius: "10px"}}>
+          <caption style={{marginBottom: "15px"}}>World report of confirmed cases</caption>
           <thead>
             <tr>
-              <th>cases</th>
-              <th>todayCases</th>
-              <th>deaths</th>
-              <th>todayDeaths</th>
-              <th>recovered</th>
-              <th>active</th>
-              <th>critical</th>
-              <th>casesPerOneMillion</th>
-              <th>deathsPerOneMillion</th>
-              <th>tests</th>
-              <th>testsPerOneMillion</th>
+              <th>Cases</th>
+              <th>Today cases</th>
+              <th>Deaths</th>
+              <th>Today deaths</th>
+              <th>Recovered</th>
+              <th>Active</th>
+              <th>Critical</th>
+              <th>Cases Per One Million</th>
+              <th>Deaths Per One Million</th>
+              <th>Tests</th>
+              <th>Tests Per One Million</th>
             </tr>
           </thead>
           <tbody>
