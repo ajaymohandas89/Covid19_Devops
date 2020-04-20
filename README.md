@@ -13,9 +13,9 @@ PRE-REQUISITE:
 How to run:
 
 Using the Endpoint for Frontend:
-  GET All Data : http://<ExternalIP>/all
-  GET All Country : http://<ExternalIP>/countries
-  GET Country Specific : http://<ExternalIP>/countries/<country>
+1) GET All Data : http:/<ExternalIP>/all
+2) GET All Country : http:/<ExternalIP>/countries
+3) GET Country Specific : http:/<ExternalIP>/countries/<country>
 
 To deploy and run the application on localhost just type npm start
 
