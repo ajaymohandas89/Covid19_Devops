@@ -1,68 +1,42 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Northeastern University MS Information Systems DevOps Spring 2020 - Final Project
 
-## Available Scripts
+PROJECT TITLE: Covid-19 Dashboard
 
-In the project directory, you can run:
+PROJECT DESCRIPTION:
 
-### `yarn start`
+Getting real time data of countries affected with covid-19, with a detailed report of total cases, people tested positive, recovered, total deaths. The dashboard drills down to country specfic data as well as an overview of all countries with a summary of world report at home page. Recharts is used for data visualization.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+PRE-REQUISITE:
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+1) Node.js v10.15.3
 
-### `yarn test`
+How to run:
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+A) Run "npm start" command at root of your project and by default react application runs on localhost 3000
 
-### `yarn build`
+B) Using the Endpoint for Frontend:
+1) GET All Data : http://ExternalIP/all
+2) GET All Country : http://ExternalIP/countries
+3) GET Country Specific : http://ExternalIP/countries/:country
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+C) To run the application after deploying it in AWS, 
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+  a) First deploy the covid-19 backend present at "https://github.com/josephnp732/Covid19-Backend"
+  
+  b) Then change the "fetchUrl" variable with AWS domain
+  
+  c) Dockerize your front end and apply front end service and deployment yaml files to get the front end pods running
+  
+  d) Hit the front end url to see the output after deploying it in AWS Eks cluster
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+D) To see the charts click on "Charts" button and click again to close it
+E) To see all country data click on "Get World report" and for a particular country details, enter country name on input box, click outside the box and then hit "Get Country Specific data" button
+  
+Note:
 
-### `yarn eject`
+1) Front-end Hostname (Open frontend with Chrome Securities Disabled)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+    a) MacOS Command: open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security
+    
+    b) For Windows: Open command line interface where you have web browser installed and disable web security for it. For example, to disable security for chrome type "chrome.exe --user-data-dir="C:/Chrome dev session" --disable-web-security"
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
