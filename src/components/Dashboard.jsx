@@ -3,12 +3,12 @@ import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 import LeftDiv from "./LeftDiv/LeftDiv";
 import TableData from "./RightDiv/TableData";
-import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import "./RightDiv/RightDiv.css";
-import {Button, Modal} from "react-bootstrap";
+import {Button} from "react-bootstrap";
 import MyChartComponent from "./MyCharts/MyChartComponent";
 import Tooltip from "@material-ui/core/Tooltip";
-import IconButton from "@material-ui/core/IconButton";
+import {fetchUrl} from "../configFile/urlFile";
 
 class Dashboard extends Component {
   constructor(props) {
@@ -22,8 +22,9 @@ class Dashboard extends Component {
     };
     this.onChange = this.onChange.bind(this);
   }
+  // componentWillMount will be called before the page renders and set the data in the state variable
   componentWillMount() {
-    fetch(`https://corona.lmao.ninja/v2/all`, {
+    fetch(`${fetchUrl}/all`, {
       method: "GET",
       headers: {
         "Access-Control-Allow-Origin": "*",
@@ -37,7 +38,7 @@ class Dashboard extends Component {
       })
       .then((data) => this.setState({allData: data}));
 
-    fetch(`https://corona.lmao.ninja/v2/countries`, {
+    fetch(`${fetchUrl}/countries?sort=country`, {
       method: "GET",
       headers: {
         "Access-Control-Allow-Origin": "*",
@@ -51,11 +52,8 @@ class Dashboard extends Component {
       })
       .then((data) => this.setState({allCountryData: data}));
   }
+  // get the new country and country specific data from child component
   onChange(newCtryName, newCountrySpecificData) {
-    console.log(newCtryName);
-    if (newCtryName == undefined) {
-      window.alert("Please enter a value to get country specific data");
-    }
     this.setState({country: newCtryName});
     this.setState({countrySpecificData: newCountrySpecificData});
   }
@@ -70,22 +68,22 @@ class Dashboard extends Component {
     const country = this.state.country;
     const leftDivAllData = this.state.allData !== undefined ? <LeftDiv allData={this.state.allData} /> : null;
     const chart = this.state.modalChart != false ? <MyChartComponent allCountryData={this.state.allCountryData} /> : null;
+
     const btnStyle = {
       border: "2px solid #922b21",
       borderRadius: "5px",
       padding: "10px",
       fontSize: "17px",
       fontWeight: "bold",
+      cursor: "pointer",
     };
     return (
       <div className="HomePage">
         <Header />
         <Tooltip title="Click to view chart and click again to close chart">
-          <IconButton aria-label="Click to view chart and click again to close chart">
-            <Button onClick={this.openChart} style={btnStyle}>
-              Chart
-            </Button>
-          </IconButton>
+          <Button onClick={this.openChart} style={btnStyle}>
+            Chart
+          </Button>
         </Tooltip>
 
         <div style={{marginBottom: "10px"}}>{chart}</div>
@@ -105,6 +103,7 @@ class Dashboard extends Component {
   }
 }
 
+//div for country specific data
 function Detail(props) {
   let country = props.country;
   const countrySpecificData = props.countrySpecificData;
@@ -150,11 +149,10 @@ function Detail(props) {
     </div>
   );
 }
-
+// displaying all countries in card layout
 function AllCountryData(props) {
   const allCountryData = props;
   const sortedData = [];
-  console.log("allCountryData.data", allCountryData.data);
   const cardLayout = {
     backgroundColor: "#f8f8ff",
     marginBottom: "20px",
@@ -173,7 +171,6 @@ function AllCountryData(props) {
       todayDeaths: allCountryData.data[i].todayDeaths,
     });
   }
-  console.log("Sorted all country datat", sortedData);
   return (
     <div id="values" className="values" style={cardLayout}>
       <div className="row">

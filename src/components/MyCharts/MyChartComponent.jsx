@@ -7,12 +7,8 @@ class MyChartComponent extends Component {
   }
   render() {
     const {allCountryData} = this.props;
-    const chartStyle = {
-      border: "2px solid #922b21",
-      borderRadius: "10px",
-    };
-
     const data = [];
+    //setting country name as X and total cases as Y coordinates for the graph
     for (var i = 0; i < allCountryData.length; i++) {
       if (allCountryData[i].cases > 10000) {
         data.push({
