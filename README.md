@@ -1,4 +1,4 @@
-Northeastern University MS IS DevOps Spring 2020 - Final Project
+Northeastern University MS Information Systems DevOps Spring 2020 - Final Project
 
 PROJECT TITLE: Covid-19 Dashboard
 
@@ -12,12 +12,31 @@ PRE-REQUISITE:
 
 How to run:
 
-Using the Endpoint for Frontend:
-1) GET All Data : http:/<ExternalIP>/all
-2) GET All Country : http:/<ExternalIP>/countries
-3) GET Country Specific : http:/<ExternalIP>/countries/<country>
+A) Run "npm start" command at root of your project and by default react application runs on localhost 3000
 
-To deploy and run the application on localhost just type npm start
+B) Using the Endpoint for Frontend:
+1) GET All Data : http://ExternalIP/all
+2) GET All Country : http://ExternalIP/countries
+3) GET Country Specific : http://ExternalIP/countries/:country
 
+C) To run the application after deploying it in AWS, 
+
+  a) First deploy the covid-19 backend present at "https://github.com/josephnp732/Covid19-Backend"
   
-Note: External IP: Public facing DNS Name generated at the end of the script country: Example: USA, India, Bahrain, etc.
+  b) Then change the "fetchUrl" variable with AWS domain
+  
+  c) Dockerize your front end and apply front end service and deployment yaml files to get the front end pods running
+  
+  d) Hit the front end url to see the output after deploying it in AWS Eks cluster
+
+D) To see the charts click on "Charts" button and click again to close it
+E) To see all country data click on "Get World report" and for a particular country details, enter country name on input box, click outside the box and then hit "Get Country Specific data" button
+  
+Note:
+
+1) Front-end Hostname (Open frontend with Chrome Securities Disabled)
+
+    a) MacOS Command: open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security
+    
+    b) For Windows: Open command line interface where you have web browser installed and disable web security for it. For example, to disable security for chrome type "chrome.exe --user-data-dir="C:/Chrome dev session" --disable-web-security"
+
