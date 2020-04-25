@@ -14,7 +14,7 @@ B) Using the Endpoint for Frontend:
 
 C) To run the application after deploying it in AWS:
 * First deploy the covid-19 backend present at `https://github.com/josephnp732/Covid19-Backend`
-* Then change the ** fetchUrl ** variable with AWS domain
+* Then change the ** fetchUrl ** variable present in with configFile/urlFile.js file with AWS domain
 *  Dockerize your front end using `Docker Build .` in the root directory of the project and push the project onto DockerHub with a desired tagname
 *  Change the image name (Line 13) in `deployment-frontend.yaml` from the backend repo to the name of the docker image you just deployed on DockerHub
 *  Redeploy the frontend deployment using `kubectl apply -f ./deployments/deployment-frontend.yaml` in the backend repo
