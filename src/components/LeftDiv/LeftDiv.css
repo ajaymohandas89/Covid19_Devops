@@ -4,13 +4,12 @@
   height: 200px;
   justify-content: center;
   margin-bottom: 2em;
-  background-color: #fcf3cf;
-  color: #141414;
+  /* color: #141414; */
   overflow-y: auto;
   overflow-x: hidden;
 }
 
 #covidTableData {
-  color: #141414;
+  /* color: #141414; */
   font-weight: bold;
 }

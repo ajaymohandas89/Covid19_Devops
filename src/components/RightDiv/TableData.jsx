@@ -38,7 +38,6 @@ class TableData extends Component {
 
   render() {
     const hyperLinkColor = {
-      color: "#212020",
       textDecoration: "none",
       fontWeight: "bold",
       border: "3px solid #922b21",
@@ -50,7 +49,7 @@ class TableData extends Component {
     return (
       <div className="form-container" style={{display: "inline-block", float: "right", marginLeft: "auto", marginRight: "auto"}}>
         <div className="countryDiv">
-          <label htmlFor="country-name" style={{fontWeight: "bold", color: "#212020"}}>
+          <label htmlFor="country-name" style={{fontWeight: "bold"}}>
             Country:{" "}
           </label>
           <input id="country-name" type="text" placeholder="enter country name" onBlur={this.onCountryNameChange.bind(this)} style={{border: "3px solid #922b21", height: "20px"}}></input>

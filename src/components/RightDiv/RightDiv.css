@@ -3,9 +3,8 @@
   width: 100%;
   height: 100px;
   justify-content: center;
-  background-color: #fcf3cf;
   margin-bottom: 2em;
-  color: #212020;
+  /* color: #212020; */
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -17,8 +16,8 @@
   margin-top: 5px;
   justify-content: center;
   margin-bottom: 2em;
-  background-color: #fcf3cf;
-  color: #141414;
+
+  /* color: #141414; */
   overflow-y: auto;
   overflow-x: auto;
 }
@@ -30,8 +29,7 @@
   margin-top: 5px;
   justify-content: center;
   margin-bottom: 2em;
-  background-color: #fcf3cf;
-  color: #141414;
+  /* color: #141414; */
   overflow-y: auto;
   overflow-x: auto;
 }
@@ -39,7 +37,7 @@
 .countryDiv {
   margin-top: 10px;
   padding-bottom: 20px;
-  color: #141414;
+  /* color: #141414; */
 }
 
 .btn-select-location {

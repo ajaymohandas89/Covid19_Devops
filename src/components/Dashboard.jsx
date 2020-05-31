@@ -10,6 +10,7 @@ import MyChartComponent from "./MyCharts/MyChartComponent";
 import Tooltip from "@material-ui/core/Tooltip";
 import {fetchUrl} from "../configFile/urlFile";
 
+
 class Dashboard extends Component {
   constructor(props) {
     super(props);
@@ -79,7 +80,7 @@ class Dashboard extends Component {
     };
     return (
       <div className="HomePage">
-        <Header />
+        <Header/>
         <Tooltip title="Click to view chart and click again to close chart">
           <Button onClick={this.openChart} style={btnStyle}>
             Chart
