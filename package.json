@@ -17,7 +17,7 @@
     "react-scripts": "3.4.1",
     "recharts": "^1.8.5",
     "styled-components": "^5.0.1",
-    "three": "^0.115.0"
+    "three": "^0.137.0"
   },
   "scripts": {
     "start": "react-scripts start",
