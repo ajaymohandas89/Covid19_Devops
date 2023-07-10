@@ -14,7 +14,7 @@
     "react-dom": "^16.13.1",
     "react-globe": "^4.0.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.1",
+    "react-scripts": "5.0.1",
     "recharts": "^1.8.5",
     "styled-components": "^5.0.1",
     "three": "^0.115.0"
@@ -42,13 +42,13 @@
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
-    "babel-loader": "^8.1.0",
+    "babel-loader": "^9.1.3",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "babel-register": "^6.26.0",
     "chai": "^4.2.0",
-    "mocha": "^7.2.0",
+    "mocha": "^10.2.0",
     "mocha-jsdom": "^2.0.0"
   }
 }
